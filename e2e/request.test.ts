@@ -1,14 +1,16 @@
-import { call } from "../src";
+import { request } from "../src";
 import "mocha";
 import { expect } from "chai";
 
-describe("call", () => {
+describe("request", () => {
     it("ping", async () => {
-        const response = await call({
-            node: "http://localhost:8080",
-            method: "ping"
+        const response = await request("http://localhost:8080", {
+            jsonrpc: "2.0",
+            method: "ping",
+            params: [],
+            id: null
         });
-        const result = JSON.parse(response);
+        const result = await response.json();
         expect(result.jsonrpc).equal("2.0");
         expect(result.result).equal("pong");
         expect(result.id).be.null;
@@ -16,12 +18,13 @@ describe("call", () => {
 
     it("ping with number id", async () => {
         const id = Math.floor(Math.random() * 1000);
-        const response = await call({
-            node: "http://localhost:8080",
+        const response = await request("http://localhost:8080", {
+            jsonrpc: "2.0",
             method: "ping",
+            params: [],
             id
         });
-        const result = JSON.parse(response);
+        const result = await response.json();
         expect(result.jsonrpc).equal("2.0");
         expect(result.result).equal("pong");
         expect(result.id).equal(id);
@@ -29,12 +32,13 @@ describe("call", () => {
 
     it("ping with string id", async () => {
         const id = "string id";
-        const response = await call({
-            node: "http://localhost:8080",
+        const response = await request("http://localhost:8080", {
+            jsonrpc: "2.0",
             method: "ping",
+            params: [],
             id
         });
-        const result = JSON.parse(response);
+        const result = await response.json();
         expect(result.jsonrpc).equal("2.0");
         expect(result.result).equal("pong");
         expect(result.id).equal(id);

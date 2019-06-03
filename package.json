@@ -14,12 +14,23 @@
   "scripts": {
     "build": "tsc -p .",
     "fmt": "tslint -p . --fix && prettier {src,e2e}/**/*.ts --write",
-    "lint": "tslint -p . && prettier {src,e2e}/**/*.ts -l"
+    "lint": "tslint -p . && prettier {src,e2e}/**/*.ts -l",
+    "test": "mocha -r ts-node/register --timeout 5000 e2e/**/*.test.ts"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.4",
+    "@types/node-fetch": "^2.3.4",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
     "prettier": "^1.17.1",
+    "ts-node": "^8.2.0",
     "tslint": "^5.17.0",
     "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
   }
 }
