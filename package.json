@@ -1,0 +1,25 @@
+{
+  "name": "codechain-rpc-js",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "repository": "https://https://github.com/CodeChain-io/codechain-rpc-js",
+  "description": "A thin wrapper of CodeChain RPC",
+  "author": "CodeChain Team <codechain@kodebox.io>",
+  "license": "ISC",
+  "private": false,
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "fmt": "tslint -p . --fix && prettier {src,e2e}/**/*.ts --write",
+    "lint": "tslint -p . && prettier {src,e2e}/**/*.ts -l"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "prettier": "^1.17.1",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  }
+}
