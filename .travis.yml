@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+    - "10"
+    - "8"
+install:
+    - yarn install
+before_script:
+    - docker pull kodebox/codechain:v1.3.0
+    - docker run -d -p 8080:8080 kodebox/codechain:v1.3.0 --jsonrpc-interface 0.0.0.0 -c solo --reseal-min-period 0
+    - docker ps -a
+script:
+    - yarn lint
+    - yarn build
+    - yarn test
+notifications:
+    webhooks: https://webhooks.gitter.im/e/8908c378a5e2669893ab
+services:
+    - docker
+cache: yarn
