@@ -1,14 +1,19 @@
 import RpcBase from "./base";
 import Account from "./account";
 import IdGenerator from "./idGenerator";
+import Devel from "./devel";
 
 export default class Rpc extends RpcBase {
     public readonly account: Account;
+    public readonly devel?: Devel;
 
-    constructor(node: string, options: { id?: IdGenerator } = {}) {
+    constructor(node: string, options: { id?: IdGenerator; devel?: boolean } = {}) {
         const idGenerator = options.id || null;
         super(node, idGenerator);
         this.account = new Account(node, idGenerator);
+        if (options.devel === true) {
+            this.devel = new Devel(node, idGenerator);
+        }
     }
 
     async ping(_params?: {}, id?: string | number | null): Promise<void> {
