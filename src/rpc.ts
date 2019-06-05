@@ -1,8 +1,12 @@
 import RpcBase from "./base";
+import Account from "./account";
 
 export default class Rpc extends RpcBase {
+    public readonly account: Account;
+
     constructor(node: string) {
         super(node);
+        this.account = new Account(node);
     }
 
     async ping(_params?: {}, id?: string | number | null): Promise<void> {
@@ -16,10 +20,7 @@ export default class Rpc extends RpcBase {
         return response.result;
     }
 
-    async commitHash(
-        _params?: {},
-        id?: string | number | null
-    ): Promise<string> {
+    async commitHash(_params?: {}, id?: string | number | null): Promise<string> {
         const method = "commitHash";
         const response = await this.call({ method, id });
         return response.result;
