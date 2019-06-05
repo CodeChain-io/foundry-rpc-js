@@ -4,6 +4,7 @@ import * as chai from "chai";
 import * as chaiAsPromised from "chai-as-promised";
 import { ec as EC } from "elliptic";
 import { padStart } from "lodash";
+import generator from "./generator";
 
 chai.use(chaiAsPromised);
 const expect = chai.expect;
@@ -12,7 +13,7 @@ const secp256k1 = new EC("secp256k1");
 
 describe("account", () => {
     it("create", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-create") });
         const beforeList = await rpc.account.getList();
         const passphrase = `some passphrase ${Math.random()}`;
         const account = await rpc.account.create({ passphrase });
@@ -24,7 +25,7 @@ describe("account", () => {
     });
 
     it("importRaw", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-importRaw") });
         const beforeList = await rpc.account.getList({});
         const passphrase = `some passphrase ${Math.random()}`;
         const randomPrivate = secp256k1
@@ -41,7 +42,7 @@ describe("account", () => {
     });
 
     it("sign", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-sign") });
         const passphrase = `some passphrase ${Math.random()}`;
         const randomKeyPair = secp256k1.genKeyPair();
         const randomPrivate = randomKeyPair.getPrivate().toString("hex");
@@ -56,7 +57,7 @@ describe("account", () => {
     });
 
     it("cannot sign without passphrase", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-sign2") });
         const passphrase = `some passphrase ${Math.random()}`;
         const randomKeyPair = secp256k1.genKeyPair();
         const randomPrivate = randomKeyPair.getPrivate().toString("hex");
@@ -69,7 +70,7 @@ describe("account", () => {
     });
 
     it("unlock", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-unlock") });
         const passphrase = `some passphrase ${Math.random()}`;
         const randomKeyPair = secp256k1.genKeyPair();
         const randomPrivate = randomKeyPair.getPrivate().toString("hex");
@@ -85,7 +86,7 @@ describe("account", () => {
     });
 
     it("unlock with duration", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-unlock2") });
         const passphrase = `some passphrase ${Math.random()}`;
         const randomKeyPair = secp256k1.genKeyPair();
         const randomPrivate = randomKeyPair.getPrivate().toString("hex");
@@ -104,7 +105,7 @@ describe("account", () => {
     });
 
     it("changePassword", async () => {
-        const rpc = new Rpc("http://localhost:8080");
+        const rpc = new Rpc("http://localhost:8080", { id: generator("account-changePassword") });
         const passphrase1 = `some passphrase ${Math.random()}`;
         const passphrase2 = `another random passphrase ${Math.random()}`;
 

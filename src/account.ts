@@ -1,4 +1,5 @@
 import RpcBase from "./base";
+import IdGenerator from "./idGenerator";
 
 type Action = Object;
 type UnsignedTransaction = {
@@ -9,8 +10,8 @@ type UnsignedTransaction = {
 };
 
 export default class Account extends RpcBase {
-    constructor(node: string) {
-        super(node);
+    constructor(node: string, idGenerator: IdGenerator | null) {
+        super(node, idGenerator);
     }
 
     async getList(_params?: {}, id?: string | number | null): Promise<string[]> {
