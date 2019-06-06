@@ -4,10 +4,12 @@ import IdGenerator from "./idGenerator";
 import Devel from "./devel";
 import Net from "./net";
 import Engine from "./engine";
+import Mempool from "./mempool";
 
 export default class Rpc extends RpcBase {
     public readonly account: Account;
     public readonly engine: Engine;
+    public readonly mempool: Mempool;
     public readonly net: Net;
     public readonly devel?: Devel;
 
@@ -16,6 +18,7 @@ export default class Rpc extends RpcBase {
         super(node, idGenerator);
         this.account = new Account(node, idGenerator);
         this.engine = new Engine(node, idGenerator);
+        this.mempool = new Mempool(node, idGenerator);
         this.net = new Net(node, idGenerator);
         if (options.devel === true) {
             this.devel = new Devel(node, idGenerator);
