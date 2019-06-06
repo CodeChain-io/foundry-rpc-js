@@ -5,9 +5,11 @@ import Devel from "./devel";
 import Net from "./net";
 import Engine from "./engine";
 import Mempool from "./mempool";
+import Chain from "./chain";
 
 export default class Rpc extends RpcBase {
     public readonly account: Account;
+    public readonly chain: Chain;
     public readonly engine: Engine;
     public readonly mempool: Mempool;
     public readonly net: Net;
@@ -17,6 +19,7 @@ export default class Rpc extends RpcBase {
         const idGenerator = options.id || null;
         super(node, idGenerator);
         this.account = new Account(node, idGenerator);
+        this.chain = new Chain(node, idGenerator);
         this.engine = new Engine(node, idGenerator);
         this.mempool = new Mempool(node, idGenerator);
         this.net = new Net(node, idGenerator);
