@@ -3,9 +3,11 @@ import Account from "./account";
 import IdGenerator from "./idGenerator";
 import Devel from "./devel";
 import Net from "./net";
+import Engine from "./engine";
 
 export default class Rpc extends RpcBase {
     public readonly account: Account;
+    public readonly engine: Engine;
     public readonly net: Net;
     public readonly devel?: Devel;
 
@@ -13,6 +15,7 @@ export default class Rpc extends RpcBase {
         const idGenerator = options.id || null;
         super(node, idGenerator);
         this.account = new Account(node, idGenerator);
+        this.engine = new Engine(node, idGenerator);
         this.net = new Net(node, idGenerator);
         if (options.devel === true) {
             this.devel = new Devel(node, idGenerator);
