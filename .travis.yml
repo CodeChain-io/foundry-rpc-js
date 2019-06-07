@@ -6,7 +6,7 @@ install:
     - yarn install
 before_script:
     - docker pull kodebox/codechain:v1.3.0
-    - docker run -d -p 8080:8080 kodebox/codechain:v1.3.0 --jsonrpc-interface 0.0.0.0 -c solo --reseal-min-period 0
+    - docker run -d -p 8080:8080 kodebox/codechain:v1.3.0 --jsonrpc-interface 0.0.0.0 -c solo --reseal-min-period 0 --enable-devel-api
     - docker ps -a
 script:
     - yarn lint
