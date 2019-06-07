@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "repository": "https://https://github.com/CodeChain-io/codechain-rpc-js",
+  "repository": "https://github.com/CodeChain-io/codechain-rpc-js",
   "description": "A thin wrapper of CodeChain RPC",
   "author": "CodeChain Team <codechain@kodebox.io>",
   "license": "ISC",
