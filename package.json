@@ -1,6 +1,6 @@
 {
   "name": "codechain-rpc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "repository": "https://github.com/CodeChain-io/codechain-rpc-js",
@@ -17,6 +17,9 @@
     "lint": "tslint -p . && prettier {src,e2e}/**/*.ts -l --print-width 120",
     "test": "mocha -r ts-node/register --timeout 5000 e2e/**/*.test.ts"
   },
+  "files": [
+    "build"
+  ],
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
