@@ -270,7 +270,7 @@ export default class Chain extends RpcBase {
         params: { blockNumber?: number | null },
         id?: string | number | null
     ): Promise<CommonParams | null> {
-        const method = "chain_getMinTransactionFee";
+        const method = "chain_getCommonParams";
         const blockNumber = params.blockNumber == null ? null : params.blockNumber;
         const response = await this.call({ method, id }, blockNumber);
         return response.result;
