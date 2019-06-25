@@ -28,7 +28,7 @@ export default class Engine extends RpcBase {
     async getCustomActionData(
         params: { handlerId: number; bytes: string; blockNumber?: number | null },
         id?: string | number | null
-    ): Promise<number> {
+    ): Promise<string> {
         const method = "engine_getCustomActionData";
         const { handlerId, bytes } = params;
         const blockNumber = params.blockNumber == null ? null : params.blockNumber;
