@@ -1,8 +1,21 @@
 import RpcBase from "./base";
 import IdGenerator from "./idGenerator";
 
-type Block = Object;
 type Transaction = Object;
+export type Block = {
+    author: string;
+    extraData: number[];
+    hash: string;
+    number: number;
+    parentHash: string;
+    score: string | number;
+    seal: number[][];
+    stateRoot: string;
+    timestamp: number;
+    transactions: Transaction[];
+    transactionsRoot: string;
+};
+
 type AssetScheme = Object;
 type Asset = Object;
 type UnsignedTransaction = Object;
