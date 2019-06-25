@@ -1,7 +1,7 @@
 import RpcBase from "./base";
 import IdGenerator from "./idGenerator";
+import { Transaction } from "./transaction";
 
-type Transaction = Object;
 export type Block = {
     author: string;
     extraData: number[];
