@@ -82,6 +82,16 @@ export default class Chain extends RpcBase {
         return response.result;
     }
 
+    async getTransactionSigner(
+        params: { transactionHash: string },
+        id?: string | number | null
+    ): Promise<string | null> {
+        const method = "chain_getTransactionSigner";
+        const { transactionHash } = params;
+        const response = await this.call({ method, id }, transactionHash);
+        return response.result;
+    }
+
     async containsTransaction(params: { transactionHash: string }, id?: string | number | null): Promise<boolean> {
         const method = "chain_containsTransaction";
         const { transactionHash } = params;
