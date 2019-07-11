@@ -334,4 +334,21 @@ export default class Chain extends RpcBase {
         const response = await this.call({ method, id });
         return response.result;
     }
+
+    async getPossibleAuthors(
+        params: { blockNumber?: number | null },
+        id?: string | number | null
+    ): Promise<string[] | null> {
+        const method = "chain_getPossibleAuthors";
+        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
+        const response = await this.call({ method, id }, blockNumber);
+        return response.result;
+    }
+
+    async getMetadataSeq(params: { blockNumber?: number | null }, id?: string | number | null): Promise<number | null> {
+        const method = "chain_getMetadataSeq";
+        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
+        const response = await this.call({ method, id }, blockNumber);
+        return response.result;
+    }
 }
