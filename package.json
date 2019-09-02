@@ -1,6 +1,6 @@
 {
   "name": "codechain-rpc",
-  "version": "0.1.6",
+  "version": "2.0.0",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
   "repository": "https://github.com/CodeChain-io/codechain-rpc-js",
