@@ -21,7 +21,7 @@ export default class Devel extends RpcBase {
     }
 
     async startSealing(_params?: {}, id?: string | number | null): Promise<void> {
-        const method = "devel_stopSealing";
+        const method = "devel_startSealing";
         const response = await this.call({ method, id });
         return response.result;
     }
