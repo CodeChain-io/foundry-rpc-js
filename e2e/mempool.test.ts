@@ -25,6 +25,11 @@ describe("mempool", function() {
         expect(transactions).deep.equal([]);
         expect(lastTimestamp).is.null;
     });
+
+    it("delete pending transactions", async function() {
+        const rpc = new Rpc("http://localhost:8080", { id: generator("mempool-delete-pending-transactions") });
+        await rpc.mempool.deleteAllPendingTransactions();
+    });
 });
 
 function randomHexString(length: number): string {

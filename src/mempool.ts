@@ -27,6 +27,11 @@ export default class Mempool extends RpcBase {
         return response.result;
     }
 
+    async deleteAllPendingTransactions(id?: string | number | null): Promise<void> {
+        const method = "mempool_deleteAllPendingTransactions";
+        await this.call({ method, id });
+    }
+
     async getPendingTransactions(
         params: { from?: number | null; to?: number | null } = {},
         id?: string | number | null
