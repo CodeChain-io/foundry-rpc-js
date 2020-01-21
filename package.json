@@ -3,8 +3,8 @@
   "version": "2.0.0",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
-  "repository": "https://github.com/CodeChain-io/codechain-rpc-js",
-  "description": "A thin wrapper of CodeChain RPC",
+  "repository": "https://github.com/CodeChain-io/foundry-rpc-js",
+  "description": "A thin wrapper of Foundry RPC",
   "author": "CodeChain Team <codechain@kodebox.io>",
   "license": "ISC",
   "private": false,
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@types/node-fetch": "^2.3.4",
+    "codechain-rpc": "^2.0.0",
     "node-fetch": "^2.6.0"
   }
 }
