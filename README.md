@@ -1,7 +1,7 @@
-CodeChain RPC JS
+Foundry RPC JS
 =================
 
-CodeChain RPC JS is a JavaScript library that calls RPC to a CodeChain node.
+Foundry RPC JS is a JavaScript library that calls RPC to a Foundry node.
 
 How to install
 --------------
@@ -9,20 +9,20 @@ How to install
 If you are using NPM, use the command below:
 
 ```
-npm install codechain-rpc --save
+npm install foundry-rpc --save
 ```
 
 If you prefer Yarn, use the command below:
 
 ```
-yarn add codechain-rpc
+yarn add foundry-rpc
 ```
 
 Example
 -------
 
 ```
-const RPC = require("codechain-rpc").default;
+const RPC = require("foundry-rpc").default;
 
 async function main() {
   const rpc = new RPC("http://localhost:8080");
