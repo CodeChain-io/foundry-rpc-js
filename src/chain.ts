@@ -16,10 +16,7 @@ export type Block = {
     transactionsRoot: string;
 };
 
-type AssetScheme = Object;
-type Asset = Object;
 type UnsignedTransaction = Object;
-type Text = { content: string; certifier: string };
 type CommonParams = {
     [s: string]: string | number | null;
 };
@@ -106,61 +103,6 @@ export default class Chain extends RpcBase {
         const method = "chain_getTransactionByTracker";
         const { tracker } = params;
         const response = await this.call({ method, id }, tracker);
-        return response.result;
-    }
-
-    async getAssetSchemeByTracker(
-        params: { tracker: string; shardId: number; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<AssetScheme | null> {
-        const method = "chain_getAssetSchemeByTracker";
-        const { tracker, shardId } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, tracker, shardId, blockNumber);
-        return response.result;
-    }
-
-    async getAssetSchemeByType(
-        params: { assetType: string; shardId: number; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<AssetScheme | null> {
-        const method = "chain_getAssetSchemeByType";
-        const { assetType, shardId } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, assetType, shardId, blockNumber);
-        return response.result;
-    }
-
-    async getAsset(
-        params: { tracker: string; transactionIndex: number; shardId: number; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<Asset | null> {
-        const method = "chain_getAsset";
-        const { tracker, transactionIndex, shardId } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, tracker, transactionIndex, shardId, blockNumber);
-        return response.result;
-    }
-
-    async getText(
-        params: { transactionHash: string; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<Text | null> {
-        const method = "chain_getText";
-        const { transactionHash } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, transactionHash, blockNumber);
-        return response.result;
-    }
-
-    async isAssetSpent(
-        params: { tracker: string; transactionIndex: number; shardId: number; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<boolean | null> {
-        const method = "chain_isAssetSpent";
-        const { tracker, transactionIndex, shardId } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, tracker, transactionIndex, shardId, blockNumber);
         return response.result;
     }
 
@@ -316,16 +258,6 @@ export default class Chain extends RpcBase {
         const method = "chain_executeTransaction";
         const { transaction, sender } = params;
         const response = await this.call({ method, id }, transaction, sender);
-        return response.result;
-    }
-
-    async executeVM(
-        params: { transaction: UnsignedTransaction; parameters: number[][][]; indices: number[] },
-        id?: string | number | null
-    ): Promise<string[]> {
-        const method = "chain_executeVM";
-        const { transaction, parameters, indices } = params;
-        const response = await this.call({ method, id }, transaction, parameters, indices);
         return response.result;
     }
 

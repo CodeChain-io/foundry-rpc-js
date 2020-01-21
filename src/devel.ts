@@ -38,6 +38,12 @@ export default class Devel extends RpcBase {
         return response.result;
     }
 
+    async developSnapshot(_params: { hash: string }, id?: string | number | null): Promise<void> {
+        const method = "devel_snapshot";
+        const { hash } = _params;
+        const response = await this.call({ method, id }, hash);
+        return response.result;
+    }
     async testTPS(
         params: {
             count: number;
