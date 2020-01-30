@@ -21,7 +21,7 @@
     "test": "mocha -r ts-node/register --timeout 5000 e2e/**/*.test.ts"
   },
   "files": [
-    "*"
+    "build"
   ],
   "devDependencies": {
     "@types/chai": "^4.1.7",
