@@ -73,7 +73,7 @@ var Rpc = /** @class */ (function (_super) {
         }
         return _this;
     }
-    Rpc.prototype.ping = function (_params, id) {
+   Rpc.prototype.ping = function (_params, id) {
         return __awaiter(this, void 0, void 0, function () {
             var method, response;
             return __generator(this, function (_a) {
