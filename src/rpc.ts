@@ -28,9 +28,10 @@ export default class Rpc extends RpcBase {
         }
     }
 
-    async ping(_params?: {}, id?: string | number | null): Promise<void> {
+    async ping(_params?: {}, id?: string | number | null): Promise<string> {
         const method = "ping";
-        await this.call({ method, id });
+        const response = await this.call({ method, id });
+        return response.result;
     }
 
     async version(_params?: {}, id?: string | number | null): Promise<string> {
