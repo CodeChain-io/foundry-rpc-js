@@ -33,13 +33,14 @@ export default class Mempool extends RpcBase {
     }
 
     async getPendingTransactions(
-        params: { from?: number | null; to?: number | null } = {},
+        params: { from?: number | null; to?: number | null; futureIncluded?: boolean } = {},
         id?: string | number | null
     ): Promise<{ transactions: Object[]; lastTimestamp: number }> {
         const method = "mempool_getPendingTransactions";
         const from = params.from == null ? null : params.from;
         const to = params.to == null ? null : params.to;
-        const response = await this.call({ method, id }, from, to);
+        const futureIncluded = params.futureIncluded == null ? false : params.futureIncluded;
+        const response = await this.call({ method, id }, from, to, futureIncluded);
         return response.result;
     }
 }
