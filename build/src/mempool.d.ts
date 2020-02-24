@@ -20,4 +20,9 @@ export default class Mempool extends RpcBase {
         transactions: Object[];
         lastTimestamp: number;
     }>;
+    countPendingTransactions(params?: {
+        from?: number | null;
+        to?: number | null;
+        futureIncluded?: boolean;
+    }, id?: string | number | null): Promise<number>;
 }

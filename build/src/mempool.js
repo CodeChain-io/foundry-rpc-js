@@ -137,6 +137,25 @@ var Mempool = /** @class */ (function (_super) {
             });
         });
     };
+    Mempool.prototype.countPendingTransactions = function (params, id) {
+        if (params === void 0) { params = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var method, from, to, futureIncluded, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        method = "mempool_getPendingTransactionsCount";
+                        from = params.from == null ? null : params.from;
+                        to = params.to == null ? null : params.to;
+                        futureIncluded = params.futureIncluded == null ? false : params.futureIncluded;
+                        return [4 /*yield*/, this.call({ method: method, id: id }, from, to, futureIncluded)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response.result];
+                }
+            });
+        });
+    };
     return Mempool;
 }(base_1.default));
 exports.default = Mempool;
