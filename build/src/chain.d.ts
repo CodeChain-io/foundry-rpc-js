@@ -10,7 +10,7 @@ export declare type Block = {
     score: string | number;
     seal: number[][];
     stateRoot: string;
-    nextValidatorSetHash: string;
+    validatorSetRoot: string;
     timestamp: number;
     transactions: Transaction[];
     transactionsRoot: string;
