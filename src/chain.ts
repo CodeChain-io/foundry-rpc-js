@@ -129,28 +129,6 @@ export default class Chain extends RpcBase {
         return response.result;
     }
 
-    async getRegularKey(
-        params: { address: string; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<string | null> {
-        const method = "chain_getRegularKey";
-        const { address } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, address, blockNumber);
-        return response.result;
-    }
-
-    async getRegularKeyOwner(
-        params: { publicKey: string; blockNumber?: number | null },
-        id?: string | number | null
-    ): Promise<string | null> {
-        const method = "chain_getRegularKeyOwner";
-        const { publicKey } = params;
-        const blockNumber = params.blockNumber == null ? null : params.blockNumber;
-        const response = await this.call({ method, id }, publicKey, blockNumber);
-        return response.result;
-    }
-
     async getGenesisAccounts(_params?: {}, id?: string | number | null): Promise<string[]> {
         const method = "chain_getGenesisAccounts";
         const response = await this.call({ method, id });
