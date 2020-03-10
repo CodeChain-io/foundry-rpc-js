@@ -1,10 +1,8 @@
-Foundry RPC JS
-=================
+# Foundry RPC JS [![Build Status](https://travis-ci.org/CodeChain-io/foundry-rpc-js.svg?branch=master)](https://travis-ci.org/CodeChain-io/foundry-rpc-js)
 
 Foundry RPC JS is a JavaScript library that calls RPC to a Foundry node.
 
-How to install
---------------
+## How to install
 
 If you are using NPM, use the command below:
 
@@ -18,8 +16,7 @@ If you prefer Yarn, use the command below:
 yarn add foundry-rpc
 ```
 
-Example
--------
+## Example
 
 ```
 const RPC = require("foundry-rpc").default;
@@ -34,7 +31,6 @@ async function main() {
 main().catch(console.error);
 ```
 
-RPC list
---------
+## RPC list
 
 You can find the RPC list in [this link](https://github.com/CodeChain-io/codechain/blob/master/spec/JSON-RPC.md).
