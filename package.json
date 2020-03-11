@@ -49,5 +49,8 @@
     "url": "https://github.com/CodeChain-io/foundry-rpc-js/issues"
   },
   "homepage": "https://github.com/CodeChain-io/foundry-rpc-js#readme",
-  "keywords": []
+  "keywords": [
+    "CodeChain",
+    "Foundry"
+  ]
 }
