@@ -41,7 +41,7 @@ export default class RpcBase {
         );
         const json = JSON.parse(response);
         if (json.error != null) {
-            throw json;
+            throw json.error;
         }
         return json;
     }
