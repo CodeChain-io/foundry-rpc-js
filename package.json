@@ -15,6 +15,7 @@
     "node": ">=8"
   },
   "scripts": {
+    "prepack": "yarn build",
     "build": "tsc -p .",
     "fmt": "prettier {src,e2e}/**/*.ts --write --print-width 120 && tslint -p . --fix",
     "lint": "tslint -p . && prettier {src,e2e}/**/*.ts -l --print-width 120",
